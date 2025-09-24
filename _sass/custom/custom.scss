@@ -1,69 +1,86 @@
-/* --- RTL Custom Styles for Just the Docs --- */
-
-
-/* Import a good-looking RTL font like Vazirmatn (optional but recommended for Persian/Arabic) */
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-
-/* Enable RTL support */
+/* === Enable Right-to-Left layout === */
 html {
   direction: rtl;
   unicode-bidi: embed;
 }
 
-/* Flip body text */
 body {
   text-align: right;
-  /* Apply the imported font */
-  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-/* Navigation sidebar */
+/* === Sidebar to the right === */
 .side-bar {
-  border-left: none;
-  border-right: 1px solid $border-color; /* move border to right */
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid #e5e5e5;
 }
 
-.main-content {
+.main {
   margin-left: 0;
-  margin-right: $nav-width; /* shift content for RTL nav */
+  margin-right: var(--nav-width, 264px); /* default JTD sidebar width */
 }
 
-/* Search bar alignment */
-.search-input-wrap {
-  direction: rtl;
+/* === Site header (title + button) === */
+.site-header {
   text-align: right;
 }
 
-/* Lists, headings, and blockquotes */
-ul, ol {
+/* === Navigation === */
+.site-nav,
+.nav-list,
+.nav-list-item,
+.nav-list-link {
+  text-align: right;
+}
+
+/* Flip expand/collapse arrows */
+.site-nav .nav-list svg {
+  transform: scaleX(-1);
+}
+
+/* === Search box === */
+.search-input-wrap {
+  direction: rtl;
+}
+
+.search-label {
+  left: auto;
+  right: 0.5rem;
+}
+
+/* === Content === */
+.main-content {
+  text-align: right;
+}
+
+ul,
+ol {
   padding-left: 0;
-  padding-right: 2rem;
+  padding-right: 1.5rem;
 }
 
 blockquote {
+  border-right: 4px solid #e5e5e5;
   border-left: none;
-  border-right: 4px solid $border-color;
-  padding-left: 0;
   padding-right: 1rem;
+  padding-left: 0;
 }
 
-/* Tables */
+/* === Tables === */
 table {
   direction: rtl;
   text-align: right;
 }
 
-/* Pagination and navigation arrows */
+/* === Pagination / prev-next === */
 .pagination {
   direction: rtl;
 }
 
-.pagination li {
-  float: right;
-}
-
-/* Code snippets */
-pre, code {
-  direction: ltr; /* keep code LTR */
+/* === Code blocks remain LTR === */
+pre,
+code {
+  direction: ltr;
   text-align: left;
 }
