@@ -8,18 +8,67 @@ body {
   text-align: right;
 }
 
-/* === Sidebar to the right === */
+// /* === Sidebar to the right === */
+// .side-bar {
+//   left: auto;
+//   right: 0;
+//   border-right: none;
+//   border-left: 1px solid #e5e5e5;
+// }
+
+// .main-content {
+//   margin-left: 0;
+//   margin-right: $nav-width;
+// }
+
+// === RTL Overrides for Just-the-Docs ===
+
+// Flip sidebar to the right
 .side-bar {
-  left: auto;
-  right: 0;
-  border-right: none;
-  border-left: 1px solid #e5e5e5;
+  @include mq(md) {
+    border-right: none;
+    border-left: $border $border-color;
+    align-items: flex-start; // flip alignment
+    right: 0;
+    left: auto;
+  }
+
+  & + .main {
+    @include mq(md) {
+      margin-left: 0;
+      margin-right: $nav-width-md;
+    }
+
+    @include mq(lg) {
+      margin-left: 0;
+      margin-right: Max(
+        #{$nav-width},
+        calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width})
+      );
+    }
+  }
 }
 
-.main-content {
-  margin-left: 0;
-  margin-right: $nav-width;
+// Main stays centered
+.main {
+  margin: auto;
+
+  @include mq(md) {
+    position: relative;
+    max-width: $content-width;
+  }
 }
+
+// Main header unchanged except flex direction
+.main-header {
+  @include mq(md) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: $header-height;
+  }
+}
+
 
 /* === Site header (title + button) === */
 .site-header {
