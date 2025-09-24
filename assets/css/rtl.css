@@ -1,0 +1,43 @@
+/* --- RTL Custom Styles for Just the Docs --- */
+
+/* Import a good-looking RTL font like Vazirmatn (optional but recommended for Persian/Arabic) */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+body {
+  direction: rtl;
+  text-align: right;
+  /* Apply the imported font */
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Ensure all major elements align correctly */
+h1, h2, h3, h4, h5, h6, p, li, a {
+  text-align: right;
+}
+
+/* Adjust list padding from the left to the right */
+ul, ol {
+  padding-right: 2em;
+  padding-left: 0;
+}
+
+/* Fix for code blocks to maintain LTR */
+pre, code {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Specific adjustments for Just the Docs theme components */
+.site-header, .site-title, .site-nav, .page-header {
+  direction: rtl;
+}
+
+.side-bar {
+  border-right: 0;
+  border-left: 1px solid #e5e5e5;
+}
+
+.main-content {
+  margin-left: 0;
+  margin-right: 260px; /* Adjust if your sidebar width is different */
+}

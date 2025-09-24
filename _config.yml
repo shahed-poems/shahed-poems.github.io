@@ -4,5 +4,10 @@ theme: just-the-docs
 
 url: https://shahed-poems.github.io
 
+# Enable custom CSS
+just_the_docs:
+  custom_css:
+    - "/assets/css/rtl.css"
+
 aux_links:
   Poems Repo: https://github.com/shahed-poems/shahed-poems/
