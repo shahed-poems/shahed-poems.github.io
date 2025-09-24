@@ -1,3 +1,9 @@
+/* --- RTL Custom Styles for Just the Docs --- */
+
+
+/* Import a good-looking RTL font like Vazirmatn (optional but recommended for Persian/Arabic) */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
 /* Enable RTL support */
 html {
   direction: rtl;
@@ -7,6 +13,8 @@ html {
 /* Flip body text */
 body {
   text-align: right;
+  /* Apply the imported font */
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Navigation sidebar */
