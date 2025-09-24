@@ -41,7 +41,6 @@
 .main-header {
   @include mq(md) {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     height: $header-height;
   }
