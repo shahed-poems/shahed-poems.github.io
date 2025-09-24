@@ -1,25 +1,4 @@
 /* === Enable Right-to-Left layout === */
-html {
-  direction: rtl;
-  unicode-bidi: embed;
-}
-
-body {
-  text-align: right;
-}
-
-// /* === Sidebar to the right === */
-// .side-bar {
-//   left: auto;
-//   right: 0;
-//   border-right: none;
-//   border-left: 1px solid #e5e5e5;
-// }
-
-// .main-content {
-//   margin-left: 0;
-//   margin-right: $nav-width;
-// }
 
 // === RTL Overrides for Just-the-Docs ===
 
@@ -28,7 +7,6 @@ body {
   @include mq(md) {
     border-right: none;
     border-left: $border $border-color;
-    align-items: flex-start; // flip alignment
     right: 0;
     left: auto;
   }
@@ -69,41 +47,75 @@ body {
   }
 }
 
-
-/* === Site header (title + button) === */
-.site-header {
-  text-align: right;
-}
-
-/* === Navigation === */
+// Site nav / header / footer width same as LTR
 .site-nav,
-.nav-list,
-.nav-list-item,
-.nav-list-link {
+.site-header,
+.site-footer {
+  width: 100%;
+
+  @include mq(lg) {
+    width: $nav-width;
+  }
+}
+
+// Site header adjustments
+.site-header {
+  display: flex;
+  min-height: $header-height;
+  align-items: center;
+  justify-content: flex-end; // flip alignment
+
+  @include mq(md) {
+    height: $header-height;
+    max-height: $header-height;
+    border-bottom: $border $border-color;
+  }
+}
+
+// Site title aligned right
+.site-title {
+  justify-content: flex-end;
   text-align: right;
+  padding-right: $sp-3;
+  padding-left: 0;
+
+  @include mq(md) {
+    padding-right: $sp-2;
+  }
 }
 
-/* Flip expand/collapse arrows */
-.site-nav .nav-list svg {
-  transform: scaleX(-1);
+// If logo exists, position to the right
+@if variable-exists(logo) {
+  .site-logo {
+    background-position: right center;
+  }
 }
 
-/* === Search box === */
-.search-input {
-  padding: .5rem 3.5rem 0.5rem 1.0rem;
+// Buttons align on left side instead of right
+.site-button {
+  margin-left: 0;
+  margin-right: auto;
 }
 
-.search-input-wrap {
-  direction: rtl;
-}
-
-.search-label {
+// Flip footer
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   left: auto;
-  right: 0.5rem;
+
+  @include mq(md) {
+    position: static;
+  }
 }
 
-/* === Content === */
-.main-content {
+// === Global text direction ===
+html {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+body {
   text-align: right;
 }
 
