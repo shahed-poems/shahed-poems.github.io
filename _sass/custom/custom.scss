@@ -1,0 +1,61 @@
+/* Enable RTL support */
+html {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+/* Flip body text */
+body {
+  text-align: right;
+}
+
+/* Navigation sidebar */
+.side-bar {
+  border-left: none;
+  border-right: 1px solid $border-color; /* move border to right */
+}
+
+.main-content {
+  margin-left: 0;
+  margin-right: $nav-width; /* shift content for RTL nav */
+}
+
+/* Search bar alignment */
+.search-input-wrap {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Lists, headings, and blockquotes */
+ul, ol {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+blockquote {
+  border-left: none;
+  border-right: 4px solid $border-color;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* Tables */
+table {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Pagination and navigation arrows */
+.pagination {
+  direction: rtl;
+}
+
+.pagination li {
+  float: right;
+}
+
+/* Code snippets */
+pre, code {
+  direction: ltr; /* keep code LTR */
+  text-align: left;
+}
